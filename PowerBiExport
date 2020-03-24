@@ -1,0 +1,18 @@
+#'dataset' holds the input data for this script
+import pandas
+data = pandas.DataFrame(dataset)
+data.to_csv(r'S:\Data Science Team\SAS Automation\testdataexportbi.csv')
+
+#Another way to do this, that checks for time: 
+# 'dataset' holds the input data for this script
+import pandas
+import datetime
+
+data = pandas.DataFrame(dataset)
+wday = ['Mon', "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+wdayNum = datetime.datetime.today().weekday()
+
+while True:
+    if wday[wdayNum] == 'Tue':
+        if str(datetime.now().hour)[0:5] == '2:31PM':
+            data.to_csv(r'C:\Users\gcovillo\Data Export\dataExportTest.csv', index = None, header=True)
